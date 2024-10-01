@@ -1,0 +1,5 @@
+.categoryProductItemImageContainer{
+    position: relative;
+    height: max(100%, 50vh);
+    width: 100%;
+}

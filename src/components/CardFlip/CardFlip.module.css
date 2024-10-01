@@ -1,0 +1,50 @@
+.c {
+    position: absolute;
+    max-width: 200px;
+    max-height: 200px;
+    width: 40vw;
+    height: 40vw;
+    cursor: pointer;
+    will-change: transform, opacity;
+  }
+
+  
+  .front,
+  .back {
+    background-size: cover;
+  }
+  
+  .back {    
+    background-image: url("/demo/femke-black-block.webp");
+  }
+  
+  .front {
+    background-image: url("/demo/viktor-black-block.webp");
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    height: 40vw;
+    max-height: 200px;
+    justify-content: center; 
+  }
+
+
+  .card{
+    max-width: 200px;
+    max-height: 200px;
+    width:40vw;
+    height: 40vw;
+    position: relative;
+    border-radius: 5px;
+    will-change: transform;
+    cursor: grab;
+    overflow: hidden;
+    
+    touch-action: pan-y;
+  }
+  
+
+  
+  

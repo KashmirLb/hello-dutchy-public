@@ -1,0 +1,131 @@
+.formContainer{
+    display:block;
+    width: 100%;
+}
+.fieldContainer{
+    padding: 1.3rem;
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 500px;
+}
+@media(min-width:450px){
+    .fieldContainer{    
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.3rem;
+    }
+}
+
+@media(min-width:450px){
+    .fieldContainer::after{
+        content:'';
+        display:block;
+        position:absolute;
+        width: 60vw;
+        max-width: 350px;
+        height: 1px;
+        transform: translateY(1.3rem) scale(1)
+    }
+}
+
+.fieldContainer label{
+    font-size: 1.3rem;
+}
+@media(max-width:450px){
+
+    .fieldContainer label, .fieldContainer input{
+        margin-top: 10px;
+        width: 100%;
+    }
+    .fieldContainer label::after{
+        content:'';
+        display:block;
+        position:absolute;
+        background-color: var(--primary-gray);
+        width: 60vw;
+        max-width: 350px;
+        height: 1px;
+    }
+}
+
+.fieldContainer input{
+    height: 28px;
+    border-radius: 2px;
+}
+
+.textareaContainer {
+    padding: 1.3rem;
+    padding-left:0;
+    padding-right: 0;
+    font-size: 1.3rem;
+    max-width: 500px;
+}
+@media(min-width:450px){
+    .textareaContainer{
+        padding:1.3rem;
+    }
+}
+
+.textareaContainer textarea{
+    height: 10rem;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.formContainer button{
+    text-transform: uppercase;
+    font-weight: 500;
+    display:block;
+    height: 40px;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 5px;
+    background-color: var(--primary-dark);
+    color: var(--white);
+    transition: .1s all ease-in-out;
+    margin-top:2rem;
+}
+
+.formContainer button:hover{
+    background-color: var(--primary-dark-2);
+}
+
+.messageSent{
+    font-weight: 500;
+    padding-left:2rem;
+    font-size: 1.3rem;
+    color: var(--primary-light)
+}
+
+.messageSent h2{
+    font-size: 1.5rem;
+    color:var(--site-white);
+    padding-bottom: 30px; 
+}
+
+.messageSent h2::after{
+    background-color: var(--site-white);
+}
+
+.messageSent button{
+    text-transform: uppercase;
+    display:block;
+    padding: 20px;
+    max-width: 400px;
+    border-radius: 5px;
+    background-color: var(--primary-dark);
+    color: var(--site-white);
+    transition: .1s all ease-in-out;
+    margin-top:30px;
+    font-size: 1.1rem;
+}
+.messageSent button:hover{
+    background-color: var(--primary-dark-2)
+}
+
+.errorMessage{
+    color: var(--site-red);
+    font-weight: 700;
+    font-size: 1rem;
+}

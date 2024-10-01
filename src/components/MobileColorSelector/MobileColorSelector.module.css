@@ -1,0 +1,27 @@
+.colorsRow{
+    margin: auto;
+    width: 90%;
+}
+
+.colorsRow ::-webkit-scrollbar {
+    height: 10px;
+    background: rgb(186 230 253);
+    border-radius: 10px;
+  }
+  
+  /* Track */
+  .colorsRow ::-webkit-scrollbar-track {
+    background: rgb(186 230 253);
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  .colorsRow ::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  .colorsRow ::-webkit-scrollbar-thumb:hover {
+    cursor:grab;
+  }

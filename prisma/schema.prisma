@@ -1,0 +1,312 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "postgresql"
+  url          = env("DATABASE_URL")
+  directUrl    = env("DIRECT_URL")
+  relationMode = "prisma"
+}
+
+model Story {
+  id        Int       @id @default(autoincrement())
+  title     String
+  link      String
+  typeId    Int
+  summary   String
+  thumbnail String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  type      StoryType @relation(fields: [typeId], references: [id])
+
+  @@index([typeId])
+}
+
+model StoryType {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  stories   Story[]
+
+  @@index([name])
+}
+
+model Product {
+  id               Int             @id @default(autoincrement())
+  enName           String
+  enDescription    String
+  nlName           String
+  nlDescription    String
+  price            String
+  categoryId       Int
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  popularity       Int             @default(0)
+  kidsPrice        String          @default("")
+  hasColors        Boolean         @default(false)
+  hasSizes         Boolean         @default(false)
+  sizeTypeId       Int             @default(1)
+  displayPerColors Boolean         @default(false)
+  productCode      String          @unique
+  published        Boolean         @default(false)
+  images           ProductImage[]
+  colors           ProductColor[]
+  sizes            ProductSize[]
+  category         ProductCategory @relation(fields: [categoryId], references: [id])
+
+  @@index([categoryId])
+  @@index([sizeTypeId])
+}
+
+model ProductImage {
+  id         Int      @id @default(autoincrement())
+  name       String
+  url        String
+  height     Int
+  width      Int
+  imageOrder Int      @default(0)
+  productId  Int
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  isColor    Boolean  @default(false)
+  colorCode  String?
+  product    Product  @relation(fields: [productId], references: [id])
+
+  @@index([productId])
+}
+
+model ProductCategory {
+  id            Int       @id @default(autoincrement())
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  categoryOrder Int       @default(0)
+  nameNl        String    @default("")
+  name          String    @default("")
+  products      Product[]
+
+  @@index([name])
+}
+
+model ContactInfo {
+  id    Int    @id @default(autoincrement())
+  name  String
+  value String
+}
+
+model HomeHeader {
+  id               Int      @id @default(autoincrement())
+  imageUrl         String
+  imageDescription String
+  imageHeight      Int
+  imageWidth       Int
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  buttonTextEn     String   @default("")
+  buttonTextNl     String   @default("")
+  order            Int      @default(0)
+  textDutch        String   @default("")
+  textEnglish      String   @default("")
+  url              String   @default("")
+}
+
+model TextRightImageLeft {
+  id               Int      @id @default(autoincrement())
+  enText           String
+  nlText           String
+  imageUrl         String
+  imageDescription String
+  imageHeight      Int
+  imageWidth       Int
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model HomeImageRow {
+  id         Int          @id @default(autoincrement())
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  homeImages HomeImages[]
+}
+
+model HomeImages {
+  id             Int          @id @default(autoincrement())
+  name           String
+  url            String
+  height         Int
+  width          Int
+  homeImageRowId Int
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  homeImageRow   HomeImageRow @relation(fields: [homeImageRowId], references: [id])
+
+  @@index([homeImageRowId])
+}
+
+model Store {
+  id        Int      @id @default(autoincrement())
+  name      String
+  address   String
+  country   String   @default("Netherlands")
+  url       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CartSession {
+  id             Int      @id @default(autoincrement())
+  sessionId      String   @unique
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime
+  cartItems      Json[]
+  orderCreated   Boolean  @default(false)
+  orderCompleted Boolean  @default(false)
+
+  @@index([sessionId])
+}
+
+model Color {
+  id         Int            @id @default(autoincrement())
+  name       String         @default("")
+  hexCode    String         @default("")
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime
+  colorCode  String         @default("")
+  sizeTypeId Int            @default(1)
+  products   ProductColor[]
+
+  @@index([sizeTypeId])
+}
+
+model Order {
+  id                Int      @id @default(autoincrement())
+  orderId           String   @unique
+  cartSessionId     String   @unique
+  cost              Float
+  paid              Boolean  @default(false)
+  token             String?  @unique
+  checkoutId        String?  @unique
+  status            String   @default("Pending")
+  policyAccepted    Boolean  @default(false)
+  addressCity       String
+  addressCountry    String
+  addressLine1      String
+  addressLine2      String
+  addressPostalCode String
+  addressState      String
+  email             String
+  phone             String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime
+  firstName         String
+  lastName          String
+  paymentMethod     String   @default("")
+  items             Json[]
+  trackingNumber    String?  @unique
+  trackingUrl       String?  @unique
+
+  @@index([orderId])
+}
+
+model OrderItem {
+  id          Int      @id @default(autoincrement())
+  productId   Int
+  productName String
+  size        String
+  sizeType    String
+  quantity    Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime
+  orderId     String
+  color       String
+
+  @@index([orderId])
+}
+
+model ProductAvailability {
+  id        Int      @id @default(autoincrement())
+  productId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  colorId   Int?
+  sizeId    Int?
+  quantity  Int      @default(999)
+
+  @@index([productId])
+}
+
+model Size {
+  id         Int           @id @default(autoincrement())
+  name       String
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime
+  sizeTypeId Int           @default(1)
+  products   ProductSize[]
+
+  @@index([sizeTypeId])
+}
+
+model SizeType {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+}
+
+model Checkout {
+  id                Int      @id @default(autoincrement())
+  orderId           String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime
+  checkoutReference String
+  status            String
+  currency          String
+  amount            Float
+  transaction_id    String
+  transaction_code  String
+  error_code        String
+  checkout_id       String
+}
+
+model OrderStatus {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+}
+
+model SuccessfulApiCall {
+  id            Int      @id @default(autoincrement())
+  route         String   @unique
+  numberOfCalls Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime
+}
+
+model ProductColor {
+  id         Int      @id @default(autoincrement())
+  productId  Int
+  colorId    Int
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime
+  sizeTypeId Int      @default(1)
+  product    Product  @relation(fields: [productId], references: [id])
+  color      Color    @relation(fields: [colorId], references: [id])
+
+  @@index([productId])
+  @@index([colorId])
+}
+
+model ProductSize {
+  id        Int      @id @default(autoincrement())
+  productId Int
+  sizeId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  product   Product  @relation(fields: [productId], references: [id])
+  size      Size     @relation(fields: [sizeId], references: [id])
+
+  @@index([productId])
+  @@index([sizeId])
+}

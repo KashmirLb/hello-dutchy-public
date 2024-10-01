@@ -1,0 +1,129 @@
+.sectionContainer{
+    width: min(100%, 1500px);
+    height: auto;
+    padding: 0px 2rem;
+    
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+@media(max-width: 768px) {
+    .sectionContainer{
+        padding: 0px 4px;
+    }
+}
+
+.imageContainer{
+    aspect-ratio: 1;
+
+    width: auto;
+    max-width: 100%;
+
+    height: 80vh;
+    max-height: 100svw;
+
+    border-radius: 100%;
+    overflow: clip;
+}
+
+.textContainer{
+    width: auto;
+    max-width: 100%;
+    
+    height: 75vh;
+    max-height: 100svh;
+    min-height: fit-content;
+
+    padding: 10vh 5vw;
+}
+
+.textWrapper{
+    --hover-color: var(--navbar-blue);
+
+    display: flex;
+    flex-basis: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    height: fit-content;
+    gap: 10rem;
+    padding: 50px 100px 100px 100px;
+    transition: .2s all ease-in-out;
+
+    pointer-events: none;
+}
+
+.textWrapper:hover{
+    cursor: pointer;
+    --hover-color: var(--secondary);
+    border-color: var(--navbar-blue);
+}
+
+.textWrapper svg{
+    transition: .2s all ease-in-out;
+    color: var(--hover-color);
+}
+
+@media(max-width: 450px ){
+    .textContainer{
+        height: fit-content;
+        padding: 5vh 2vw;
+    }
+    .textWrapper{
+        padding: 50px 20px 50px 20px;
+    }
+}
+
+.linkWrapper > div{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.linkWrapper > div > div{
+    display: block;
+    width: fit-content;
+}
+.textContainer a{
+    pointer-events: auto;
+    color: var(--hover-color);
+    transition: .2s all ease-in-out;
+}
+.textContainer a::after{
+    content: '';
+    height: 2px;
+    width: 100%;
+    display: block;
+    background: var(--hover-color);
+    border-radius: 2px;
+    transition: .2s all ease-in-out;
+}
+
+.textContainer a:hover{
+    color: var(--secondary);
+}
+.textContainer a:hover::after{
+    background: var(--secondary);
+}
+
+.textWrapper a:hover svg{
+    animation-name: arrow-animation;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes arrow-animation{
+    0%{
+        transform: translateX(0px) translateY(0.5rem)
+    }
+    50%{
+        transform: translateX(4px) translateY(0.5rem)
+
+    }
+    100%{
+        transform: translateX(0px) translateY(0.5rem)
+    }
+}

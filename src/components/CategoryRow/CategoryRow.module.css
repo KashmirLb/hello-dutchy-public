@@ -1,0 +1,27 @@
+/* width */
+
+.categoryRowContainer{
+  width: 100%;
+}
+.categoryRowContainer ::-webkit-scrollbar {
+    height: 10px;
+    background: rgb(186 230 253);
+    border-radius: 10px;
+  }
+  
+  /* Track */
+  .categoryRowContainer ::-webkit-scrollbar-track {
+    background: rgb(186 230 253);
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  .categoryRowContainer ::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  .categoryRowContainer ::-webkit-scrollbar-thumb:hover {
+    cursor:grab;
+  }

@@ -1,0 +1,50 @@
+/** IMAGE CONTAINERS **/
+
+.outerImageContainer{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+
+    padding: 20px;
+}
+@media(max-width:768px) {
+    .outerImageContainer{
+        padding: 0;
+        transform: translateY(20px);
+    }
+}
+
+.cloudInnerBlock{
+    position: absolute;
+    background-color: transparent;
+    border: 25px var(--site-white) solid;
+    top:50%;
+    transform: translateY(-50%);
+    max-height: 100%;
+    right: -13px;
+    left: -13px;
+    aspect-ratio: 800 / 490;
+    border-radius: 40px;
+    z-index: 10;
+    box-shadow: inset 0 0 10px black;
+}
+@media(max-width: 767px){
+    .cloudInnerBlock{
+        right: 50%;
+        left: auto;
+        top:-12.5px;
+        max-height: calc(100% + 50px);
+        bottom: -12.5px;
+        transform: translateX(50%);
+    }
+}
+@media(max-width: 530px){
+    .cloudInnerBlock{
+        max-width: calc(100% + 50px);
+        top: 50%;
+        right: -12.5px;
+        left: -12.5px;
+        transform: translateY(-50%);
+    }
+}

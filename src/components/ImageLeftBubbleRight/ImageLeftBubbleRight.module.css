@@ -1,0 +1,241 @@
+/** FULL TEXT SIDE CONTAINER **/
+.bubbleTextContainer {
+    max-width: 100vw;
+}
+
+/* SMALL BUBBLES */
+.bubbleOne{
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    bottom: calc(90% - 100px);
+    width: 100px;
+    background: radial-gradient(ellipse at center, #ffffff38 0%, #ffffff 90%, #fff 100%);
+    border-radius: 100%;
+    opacity: .2;
+    border: 3px var(--site-white) solid;
+    transform: translateX(-5px);
+    animation-delay: 1s;
+}
+.bubbleTwo{
+    position: absolute;
+    top: 20%;
+    bottom: calc(80% - 70px);
+    right: 10%;
+    width: 70px;
+    background: radial-gradient(ellipse at center, #ffffff38 0%, #ffffff 90%, #fff 100%);
+    border-radius: 100%;
+    opacity: .9;
+    border: 3px var(--site-white) solid;
+    transform: translateX(-5px);
+}
+.bubbleThree{
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    bottom: calc(75% - 30px);
+    width: 30px;
+    background: radial-gradient(ellipse at center, #ffffff38 0%, #ffffff 90%, #fff 100%);
+    border-radius: 100%;
+    opacity: .7;
+    border: 3px var(--site-white) solid;
+    transform: translateX(-5px);
+    animation-delay: 7s;
+}
+.bubbleFour{
+    position: absolute;
+    top: 80%;
+    left: 10%;
+    bottom: calc(20% - 120px);
+    width: 120px;
+    background: radial-gradient(ellipse at center, #ffffff38 0%, #ffffff 90%, #fff 100%);
+    border-radius: 100%;
+    opacity: .5;
+    border: 3px var(--site-white) solid;
+    transform: translateX(-5px);
+    animation-delay: 4s;
+}
+.bubbleFive{
+    position: absolute;
+    top: 75%;
+    left: 30%;
+    bottom: calc(25% - 45px);
+    width: 45px;
+    background: radial-gradient(ellipse at center, #ffffff38 0%, #ffffff 90%, #fff 100%);
+    border-radius: 100%;
+    opacity: .6;    
+    border: 3px var(--site-white) solid;
+    transform: translateX(-5px);
+    animation-delay: 3s;
+}
+.bubbleSix{
+    position: absolute;
+    top: 65%;
+    left: 75%;
+    bottom: calc(35% - 60px);
+    width: 60px;
+    background: radial-gradient(ellipse at center, #ffffff38 0%, #ffffff 90%, #fff 100%);
+    border-radius: 100%;
+    opacity: .3;
+    border: 3px var(--site-white) solid;
+    transform: translateX(-5px);
+    animation-delay: 1s;
+}
+
+/** MAIN BUBBLE AND TEXT CONTAINER **/
+.bubbleTextContainerText{
+    position: relative;
+    height: fit-content;
+    min-height: fit-content;
+    width: 100%;
+    display: flex;
+}
+
+/** TEXT CONTAINER **/
+.textContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: fit-content;
+    border-radius: 100%;
+}
+
+/** MAIN BUBBLE **/
+.bubbleText{
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 100%;
+    background: radial-gradient(ellipse at center, #ffffff38 0%, #ffffff 90%, #fff 100%);
+    border: 3px var(--site-white) solid;
+    opacity: .5;
+}
+
+/** TABLET SIZES **/
+@media(max-width:768px) {
+    /** MAIN **/
+    .textContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 95vw;
+        height: 95vw;
+    }
+    .bubbleText{
+        top:0;
+        transform: none;
+        width: 95vw;
+        height: 95vw;
+    }
+
+    /** SMALL BUBBLES **/
+    .bubbleOne{
+        top: 5%;
+        left: 10%;
+        bottom: calc(95% - 100px);
+    }
+    .bubbleTwo{
+        top: 5%;
+        bottom: calc(95% - 70px);
+        right: 5%;
+        width: 70px;
+        opacity: .5;
+    }
+    .bubbleThree{
+        opacity: .3;
+    }
+}
+
+/** MOBILE SIZES **/
+@media(max-width:424px) {
+    /** FULL TEXT SIDE CONTAINER **/
+    .bubbleTextContainer {
+        padding-top:20%;
+    }
+
+    /** MAIN TEXT **/
+    .textContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 95vw;
+        height: fit-content;
+        z-index: 10;
+        font-size: 1.4rem;
+    }
+
+    /** MAIN BUBBLE **/
+    .bubbleText{
+        top:0;
+        bottom:0;
+        left: 50%;
+        transform: translateX(-50%) translateY(-10%);
+        height: 120%;
+        width: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    /** SMALL BUBBLES **/
+    .bubbleOne{
+        top: 5%;
+        left: 5%;
+        bottom: calc(95% - 20px);
+        widtH: 20px;
+    }
+    .bubbleTwo{
+        position: absolute;
+        top: 5%;
+        bottom: calc(95% - 30px);
+        right: 0%;
+        width: 30px;
+    }
+    .bubbleThree{
+        top: 55%;
+        left: 5%;
+        bottom: calc(45% - 20px);
+        width: 20px;
+    }
+    .bubbleFour{
+        width: 35px;
+        height: 35px;
+        bottom: 0;
+        top:90%;
+        left: 0;
+    }
+    .bubbleFive{
+        top: 100%;
+        left: 5%;
+        bottom: calc(0% - 20px);
+        width: 20px;
+    }
+}
+
+/** IMAGE HANDLING **/
+
+.imageContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .imageContainer img{
+    max-height: 500px;
+    width: auto;
+    z-index: 10;
+  }
+
+  .bubbleImage{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-10px);
+    border-radius: 100%;
+    background: radial-gradient(ellipse at center, #ffffff38 0%, #ffffff 90%, #fff 100%);
+    border: 3px var(--site-white) solid;
+    opacity: .3;
+}

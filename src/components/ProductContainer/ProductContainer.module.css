@@ -1,0 +1,35 @@
+.productContainer h3{
+    text-align: center;
+    text-wrap: balance;
+  }
+
+.productContainer{
+    height: 300px;
+    width: auto;
+    max-width: 300px;
+    min-width: 250px;
+
+    overflow:hidden;
+}
+
+.productImageContainer {
+  position: relative;
+  height: 70%;
+  aspect-ratio: 1/1;
+
+  overflow: hidden;
+}
+
+@media (max-width: 425px) {
+  .productContainer{
+    width: 95% !important;
+    max-width: 95svw !important;
+    min-width: 95%;
+    height: auto;
+  }
+  .productImageContainer {
+    width: 100%;
+    aspect-ratio: 1/1;
+    height: auto;
+  }
+}

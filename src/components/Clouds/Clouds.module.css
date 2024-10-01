@@ -1,0 +1,246 @@
+/** CLOUD SIZES **/
+
+.innerCloudsContainer{
+    --cloud: 300px;
+}
+@media(max-width: 1720px) {
+    .innerCloudsContainer{
+        --cloud: 250px;
+    }   
+}
+@media(max-width: 1441px) {
+    .innerCloudsContainer{
+        --cloud: 200px;
+    }   
+}
+@media(max-width: 1024px) {
+    .innerCloudsContainer{
+        --cloud: 150px;
+    }   
+}
+@media(max-width: 768px) {
+    .innerCloudsContainer{
+        --cloud: 200px;
+    }   
+}
+@media(max-width: 500px) {
+    .innerCloudsContainer{
+        --cloud: 150px;
+    }   
+}
+
+/** CLOUDS CONTAINER **/
+
+.outerCloudsContainer{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.innerCloudsContainer{
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 800 / 490 !important;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/** CLOUD PAINT **/
+
+.cloudFramePaint{
+    --ratio1: .5;
+    position: absolute;
+    background-color: var(--site-white);
+    height: var(--cloud);
+    width: var(--cloud);
+    border-radius: 100%;
+    clip-path: circle(50%);
+}
+.cloudFramePaint::after{
+    content: '';
+    position: absolute;
+    height: var(--cloud);
+    width: var(--cloud);
+    background-image: conic-gradient(var(--site-white) 0 calc(var(--ratio1) * 360deg), rgb(232, 247, 253) calc(var(--ratio1) * 360deg) 360deg);
+    rotate: 60deg;
+    z-index: -1
+}
+.cloudFramePaint::before{
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: calc(var(--cloud) - 20px);
+    height: calc(var(--cloud) - 20px);
+    border-radius: 100%;
+    background-color: var(--site-white);
+}
+
+/** CLOUD FRAMES **/ 
+
+.cloudFrameOne{
+    top: 0;
+    left: 0;
+    rotate: 0deg;
+}
+.cloudFrameTwo{
+    top: 0;
+    left: 15%;
+    rotate: 27deg;
+}
+.cloudFrameThree{
+    top: 25%;
+    left: 0;
+    rotate: -40deg;
+}
+.cloudFrame4{
+    top: 0%;
+    left: 30%;
+    rotate: 27deg;
+}
+.cloudFrame5{
+    top: 0%;
+    left: 45%;
+    rotate: 27deg;
+}
+.cloudFrame6{
+    top: 0%;
+    left: 60%;
+    rotate: 27deg;
+}
+.cloudFrame7{
+    top: 0%;
+    right: 0%;
+    rotate: 77deg;
+}
+.cloudFrame8{
+    top: 30%;
+    right: 0%;
+    rotate: 87deg;
+}
+.cloudFrame10{
+    bottom: 0;
+    right: 0%;
+    rotate: 167deg;
+}
+.cloudFrame11{
+    bottom: 0;
+    left: 55%;
+    rotate: 187deg;
+}
+.cloudFrame12{
+    bottom: 0;
+    left: 35%;
+    rotate: 187deg;
+}
+.cloudFrame13{
+    bottom: 0;
+    left: 15%;
+    rotate: 187deg;
+}
+.cloudFrame14{
+    bottom: 0;
+    left: 0%;
+    rotate: 260deg;
+}
+
+@media(max-width: 580px){
+
+    .cloudFrameOne{
+        top: -10%;
+        left: -10%;
+        rotate: 0deg;
+    }
+    .cloudFrameTwo{
+        top: -10%;
+        left: 15%;
+        rotate: 27deg;
+    }
+    .cloudFrameThree{
+        top: 25%;
+        left: -10%;
+        rotate: -40deg;
+    }
+    .cloudFrame4{
+        top: -10%;
+        left: 30%;
+        rotate: 27deg;
+    }
+    .cloudFrame5{
+        top: -10%;
+        left: 45%;
+        rotate: 27deg;
+    }
+    .cloudFrame6{
+        top: -10%;
+        left: 60%;
+        rotate: 27deg;
+    }
+    .cloudFrame7{
+        top: -10%;
+        right: -10%;
+        rotate: 77deg;
+    }
+    .cloudFrame8{
+        top: 20%;
+        right: -10%;
+        rotate: 87deg;
+    }
+    .cloudFrame10{
+        bottom: -10%;
+        right: -10%;
+        rotate: 167deg;
+    }
+    .cloudFrame11{
+        bottom: -10%;
+        left: 55%;
+        rotate: 187deg;
+    }
+    .cloudFrame12{
+        bottom: -10%;
+        left: 35%;
+        rotate: 187deg;
+    }
+    .cloudFrame13{
+        bottom: -10%;
+        left: 15%;
+        rotate: 187deg;
+    }
+    .cloudFrame14{
+        bottom: -10%;
+        left: -10%;
+        rotate: 260deg;
+    }
+}
+@media(max-width: 375px){
+
+    .cloudFrameThree{
+        scale:0;
+    }
+    .cloudFrame4{
+        translate: 20%;
+    }
+    .cloudFrame5{
+        scale:0;
+    }
+    .cloudFrame6{
+        scale:0;
+    }
+    .cloudFrame8{
+        scale: 0;
+    }
+
+    .cloudFrame11{
+        scale:0;
+    }
+
+}

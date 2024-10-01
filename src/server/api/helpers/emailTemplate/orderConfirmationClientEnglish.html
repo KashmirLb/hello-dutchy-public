@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
+  <title>Order Confirmation</title>
+</head>
+<body style="font-family: 'Quicksand', sans-serif; font-optical-sizing: auto; font-style: normal;">
+    <div style="font-family: sans-serif; font-size: 16px; line-height: 1.5; color: #000000; margin: 0 auto; padding-top: 50px;">
+      <div style="border: 1px solid #304d93; padding: 10px 50px; width: 100%; max-width: 700px; text-align: center; margin: 0 auto;">
+        <img src="https://www.hellodutchy.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhello-dutchy-logo-white.8bf95918.png&w=384&q=75" style="height: 80px; width: auto;"></img>
+        <h1 style="font-family: 'Quicksand', sans-serif; font-optical-sizing: auto; font-style: normal; color: #304d93; ">Thank you for your order!</h1>
+        <img src="https://res.cloudinary.com/dzrsik7dn/image/upload/v1722890592/hello-dutchy/statics/e3scee9rs8dgfpxbuecf.png" style="height: 120px; width: auto;"/>
+        <div style="width: 100%;">
+          <p style="margin-top: 40px; text-align:center; color:#1b265c; ">
+            We have received your order and will notify you once it has been shipped.
+          </p>
+
+          <div style="padding:20px; justify-content: center;  background-color: #f1f5f9;" >
+            <h2 style="font-family: 'Quicksand', sans-serif; font-optical-sizing: auto; font-style: normal; color: #304d93; ">Summary:</h2>
+            <h3 style="font-family: 'Quicksand', sans-serif; font-optical-sizing: auto; font-style: normal; color: #1b265c; text-align: center; margin: 5px;">
+              Order Number: <span style="color: #0392BF"># {{orderId}}</span>
+            </h3>
+            <table style="width: 100%; font-family: 'Quicksand', sans-serif; font-optical-sizing: auto; font-style: normal; color: 0392BF;">
+              <tbody>
+                <tr>
+                  <td>
+                    <p style="text-align: left; font-weight: bold; color: 0392BF;">
+                      Order Date: 
+                    </p>
+                    <p style="text-align: left; font-weight: bold; color: 0392BF;">
+                      Contact phone:
+                    </p>
+                  </td>
+                  <td>
+                    <p style="text-align: left; font-weight: bold;">
+                      <span style="color: #0392BF">{{orderDate}}</span>
+                    </p>
+                    <p style="text-align: left; font-weight: bold;">
+                      <span style="color: #0392BF">{{orderPhone}}</span>
+                    </p>
+                  </td>
+                  <td>
+                    <p style="font-weight: bold; display: block; margin-top: 10px; height: 100%; color: 0392BF;">
+                      Address:
+                    </p>
+                    <p>
+                      -
+                    </p>
+                  </td>
+                  <td>
+                    <p style="text-align: left; font-weight: bold; color: #0392BF; width: fit-content; word-wrap: break-word;">
+                      {{orderAddressOneAndTwo}}<br/>
+                      {{orderCityAndPostalCode}}<br/>
+                      {{orderProvince}}, {{orderCountry}}
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="min-width: 100%; width: fit-content; border-collapse: collapse; border: 1px solid #304e9358; text-align: center;">
+              <thead style="background-color: #304e93; color: #ffffff; width:100%;">
+                <tr>
+                  <th style="word-wrap: break-word;">Product</th>
+                  <th style="word-wrap: break-word;">Quantity</th>
+                  <th style="word-wrap: break-word;">Price</th>
+                </tr>
+              </thead>
+              <tbody style="width: 100%;">
+                {{orderItemsInTableFormat}}
+            </table>
+            <h3 style="font-family: 'Quicksand', sans-serif; font-optical-sizing: auto; font-style: normal; color: #1b265c;">
+              Total: <span style="color: #0392BF">{{orderTotalPrice}} €</span>
+            </h3>
+          </div>
+
+          <div>
+            <p style="font-family: 'Quicksand', sans-serif; font-optical-sizing: auto; font-style: normal; color: #1b265c; text-align: center; font-weight: bold; margin-top: 40px;">
+              To see the order status and more details, you can visit the link below:
+            </p>
+            <div style="margin-top: 30px;">
+              <a href="{{selfUrl}}/view-order/{{orderId}}|{{orderToken}}" style="background-color:#1b265c; color: #ffffff; padding: 20px 80px; border-radius: 5px; text-decoration: none; font-family: 'Quicksand', sans-serif; font-optical-sizing: auto; font-style: normal; font-weight: bold; font-size: 1.2rem; ">
+                ORDER DETAILS
+              </a>
+            </div>
+          </div>
+        </div>
+        <footer>
+          <div style="padding: 20px;">
+            <p style="color:gray; margin-top: 100px;">
+              For any questions or enquiries, please contact us at <span style="font-weight: bold;">info@hellodutchy.com</span>
+            </p>
+            <p style="margin-bottom: 20px;">
+              <a href="{{selfUrl}}/privacy-policy" style="color:gray;">Terms and Policies</a>
+            </p>
+            <p style="font-family: 'Quicksand', sans-serif; font-optical-sizing: auto; font-style: normal; color: #1b265c; text-align: center; font-weight: bold; margin-top: 0;">
+              © {{orderYear}} Hello Dutchy. All rights reserved.
+            </p>
+          </div>
+        </footer>
+      </div>    
+    </div>
+</body>
+</html>

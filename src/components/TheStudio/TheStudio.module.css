@@ -1,0 +1,88 @@
+.sectionContainer{
+    width: 100%;
+    height: auto;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.imageContainer{
+    aspect-ratio: 1;
+
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 100%;
+    overflow: clip;
+}
+
+.textContainer{
+    width: auto;
+    max-width: 60%;
+    min-height: fit-content;
+
+    padding: 2vw;
+}
+
+@media(max-width: 768px) {
+    .sectionContainer{
+        padding: 0px 4px;
+        flex-direction: column;
+    }
+
+    .imageContainer{
+        width: auto;
+        height: 80svh;
+        max-height: 80svw;
+        max-width: 100%;
+    }
+
+    .textContainer{
+        max-width: 100%;
+        padding: 0px 20px;
+    }
+}
+
+.textWrapper:hover{
+    --hover-color: var(--secondary);
+    border-color: var(--navbar-blue);
+}
+
+.textWrapper svg{
+    transition: .2s all ease-in-out;
+    color: var(--hover-color);
+}
+
+@media(max-width: 450px ){
+    .textContainer{
+        height: fit-content;
+        padding: 5px;
+    }
+}
+
+.linkWrapper > div{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.linkWrapper > div > div{
+    display: block;
+    width: fit-content;
+}
+
+.textContainer a:hover{
+    color: var(--secondary);
+}
+.textContainer a:hover::after{
+    background: var(--secondary);
+}
+
+.textWrapper a:hover svg{
+    animation-name: arrow-animation;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
